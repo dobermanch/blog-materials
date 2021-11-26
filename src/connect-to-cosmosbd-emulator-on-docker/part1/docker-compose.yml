@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  # Emulator portal https://localhost:8081/_explorer/index.html
+  # download https://localhost:8081/_explorer/emulator.pem certificate
+  azure.cosmosdb:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    container_name: azure.cosmosdb
+   # mem_limit: 3g
+   # cpus: 2.0
+    hostname: azure.cosmosdb
+    environment:
+       - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=5 
+       - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+       - AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=<YOUR LOCAL MACHINE IP ADDRESS>
+    ports:
+       - 8081:8081 
+       - 10251:10251 
+       - 10252:10252 
+       - 10253:10253 
+       - 10254:10254

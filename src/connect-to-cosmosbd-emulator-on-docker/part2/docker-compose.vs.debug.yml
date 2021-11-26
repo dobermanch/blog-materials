@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+
+  # Emulator portal https://localhost:8081/_explorer/index.html
+  azure.cosmosdb:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    container_name: azure.cosmosdb
+   # mem_limit: 3g
+   # cpus: 2.0
+    hostname: azure.cosmosdb
+    environment:
+       - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=5 
+       - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+       # If you run Media.Service.Api directly from VS
+       # - uncomment this variable and set it to your's host VM IP
+       # - download https://azure.cosmosdb:8081/_explorer/emulator.pem certificate
+       # - rename it to emulator.crt  
+       # - double click on it and install it to the Trusted Root Certification Authorities. DO NOT use 'Automatically select the certificate store...' option.
+       - AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=192.168.0.15
+    ports:
+       - 8081:8081 
+       - 10251:10251 
+       - 10252:10252 
+       - 10253:10253 
+       - 10254:10254
