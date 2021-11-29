@@ -3,14 +3,13 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>1e6591a4-2eb7-47d5-83ef-8a26be66b01e</ProjectGuid>
+    <ProjectGuid>9386d917-636f-4994-aeb5-355534e5245e</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="docker-compose - Copy.override.yml">
+    <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
-    <None Include="docker-compose.vs.debug.yml" />
-    <None Include="docker-compose.override.yml">
+    <None Include="docker-compose.vs.debug.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
     <None Include="docker-compose.yml" />

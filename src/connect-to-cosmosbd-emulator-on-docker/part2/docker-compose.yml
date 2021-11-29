@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  cosmosdbsimulatorplayground:
-    image: ${DOCKER_REGISTRY-}cosmosdbsimulatorplayground
+  cosmosdbtest:
+    image: ${DOCKER_REGISTRY-}cosmosdbtest
     build:
       context: .
-      dockerfile: CosmosDBSimulatorPlayground/Dockerfile
+      dockerfile: CosmosDbTest/Dockerfile

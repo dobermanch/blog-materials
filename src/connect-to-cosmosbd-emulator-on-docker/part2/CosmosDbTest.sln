@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDbTest", "CosmosDbTest\CosmosDbTest.csproj", "{98424474-F7D7-44A8-AC3E-6C11F91666EA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9386D917-636F-4994-AEB5-355534E5245E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98424474-F7D7-44A8-AC3E-6C11F91666EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98424474-F7D7-44A8-AC3E-6C11F91666EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98424474-F7D7-44A8-AC3E-6C11F91666EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98424474-F7D7-44A8-AC3E-6C11F91666EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9386D917-636F-4994-AEB5-355534E5245E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9386D917-636F-4994-AEB5-355534E5245E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9386D917-636F-4994-AEB5-355534E5245E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9386D917-636F-4994-AEB5-355534E5245E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21E6F762-0D0B-4288-813F-8EDD304719DF}
+	EndGlobalSection
+EndGlobal
