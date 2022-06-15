@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var employee = Employee(id: UUID(), name: "John", lastName: "Doe")
+    @State private var employee = Employee(id: UUID(), firstName: "John", lastName: "Doe")
     
     var body: some View {
         VStack {
-            Text("My name is \(employee.name) \(employee.lastName)")
+            Text("My name is \(employee.firstName) \(employee.lastName)")
                 .padding()
             
             Button("Change name", action: {
                 var original = self.employee
-                original.name = original.name == "John" ? "Jane" : "John"
+                original.firstName = original.firstName == "John" ? "Jane" : "John"
                 let json = JsonHelper.toJson(original)
                 self.employee = JsonHelper.fromJson(json)!
             })
@@ -27,7 +27,7 @@ struct ContentView: View {
 
 struct Employee: Codable {
     var id: UUID
-    var name: String
+    var firstName: String
     var lastName: String
 }
 
