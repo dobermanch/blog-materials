@@ -1,3 +1,3 @@
 # Overview
 
-This repository contains resource/samples for may personal [blog][https://libertus.dev]
+This repository contains resource/samples for may personal [blog](https://libertus.dev)

@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct AppInfo {
-    
     static var bundleIdentifier: String {
-        return (Bundle.main.bundleIdentifier ?? "")
+        return Bundle.main.bundleIdentifier ?? ""
     }
     
     static var displayName: String {
@@ -28,12 +27,7 @@ struct AppInfo {
     static var appFullVersion: String {
         appVersion + "." + appBuild
     }
-    
-    static var watchOSVersion: String?
-    
-    static var watchModel: String?
-    
-    #if os(iOS)
+
     static var systemVersion: String {
         UIDevice.current.systemVersion
     }
@@ -50,8 +44,7 @@ struct AppInfo {
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         #endif
-        //UIDevice.current.name
+        
         return identifier
     }
-    #endif
 }
