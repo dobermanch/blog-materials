@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  reverse.proxy:
+    image: traefik:v2.9
+    container_name: reverse.proxy
+    command:
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false
+      - --log.level=DEBUG
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.websecure.http.tls=true
+      - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+      - --providers.file.filename=/etc/traefik/tls.yml
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - certs:/etc/ssl/traefik
+      - ./tls.yml:/etc/traefik/tls.yml
+    restart:
+      unless-stopped
+
+  reverse-proxy-https-helper:
+    image: alpine
+    container_name: reverce.proxy.cert.provider
+    command: sh -c "cd /etc/ssl/traefik
+      && wget traefik.me/cert.pem -O cert.pem
+      && wget traefik.me/privkey.pem -O privkey.pem"
+    volumes:
+      - certs:/etc/ssl/traefik
+
+  whoami:
+    image: containous/whoami
+    container_name: whoami
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.whoami.rule=Host(`whoami.traefik.me`)
+      - traefik.http.routers.whoami.entrypoints=websecure
+      - traefik.http.routers.whoami.tls=true
+      - traefik.http.routers.whoami.service=whoami
+      - traefik.http.services.whoami.loadbalancer.server.port=80
+          
+volumes:
+  certs:
